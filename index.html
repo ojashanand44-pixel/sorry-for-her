@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SORRY MERYEM🥺</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #ffe6f2;
+      padding: 20px 10px;
+      margin: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #box {
+      background: white;
+      padding: 25px 15px;
+      width: 92%;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      touch-action: manipulation;
+    }
+
+    #yes {
+      background: #ff4d88;
+      color: white;
+    }
+
+    #no {
+      background: #cccccc;
+      position: relative;
+    }
+
+    h1 {
+      color: #ff4d88;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <audio id="bgMusic" autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+    <source src="song.mp4" type="audio/mp4">
+  </audio>
+</head>
+
+<body>
+
+  <div id="box">
+
+    <div style="font-size: 14px; color: #ff4d88; font-weight: 600; margin-bottom: 12px;">
+      🎵 I started listening to Mac DeMarco for you 🎵
+    </div>
+
+    <h1>SORRY MERYEM🥺❤️</h1>
+
+    <img id="slidePic" src="pic1">
+
+    <p id="text">
+      I KNOW MY SWEETHEART, I REALLY HURT YOUR FEELINGS ☹️☹️
+  AND I KNOW SAYING SORRY CAN'T MAGICALLY UNDO IT. BUT I STILL WANT TO
+  TELL YOU HOW GENUINELY SORRY I AM. 🥺❤️
+    </p>
+
+    <button id="nextBtn" onclick="nextMessage()">NEXT ➔</button>
+
+    <div id="final" style="display:none;">
+
+      <button id="yes" onclick="forgive()">
+        ❤️ FORGIVE ME
+      </button>
+
+      <button id="no" onclick="dodgeNoButton()">
+        😤 STILL MAD
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let step = 0;
+    let isPlaying = false;
+    const music = document.getElementById("bgMusic");
+
+    function forcePlayAudio() {
+      if (music) {
+        const promise = music.play();
+        if (promise !== undefined) {
+          promise.then(() => {
+            isPlaying = true;
+          }).catch(e => {
+            console.log("Audio waiting for user gesture:", e);
+          });
+        }
+      }
+    }
+
+    // Try playing on load
+    window.addEventListener("DOMContentLoaded", forcePlayAudio);
+    window.addEventListener("load", forcePlayAudio);
+    forcePlayAudio();
+
+    // Universal Mobile Gesture Unlock (plays on FIRST touch anywhere on screen)
+    function unlockAudioOnMobile() {
+      if (!isPlaying) {
+        forcePlayAudio();
+      }
+    }
+
+    ["touchstart", "touchend", "pointerdown", "click"].forEach(evt => {
+      document.addEventListener(evt, unlockAudioOnMobile, { passive: true });
+    });
+
+    function startMusicOnInteract() {
+      forcePlayAudio();
+    }
+
+    function nextMessage() {
+      startMusicOnInteract();
+
+      step++;
+
+      if (step == 1) {
+
+        document.getElementById("slidePic").src = "pic2";
+
+        document.getElementById("text").innerHTML =
+          "First of all, I am really, really sorry, my love 🥺❤️. I know these past two months didnt go the way we expected, and I swear there was never any intention of ghosting you when I first messaged you. I wanted to talk to you for so many days, but these past few days havent been good for me or my family.";
+      }
+
+      else if (step == 2) {
+
+        document.getElementById("slidePic").src = "pic3";
+
+        document.getElementById("text").innerHTML =
+          "But I know that disappearing and not talking to you was still wrong. You didn’t deserve to be left wondering what happened or why I wasn’t talking to you. I’m truly sorry for that my cutie mer.";
+      }
+
+      else if (step == 3) {
+
+        document.getElementById("slidePic").src = "pic4";
+
+        document.getElementById("text").innerHTML =
+          "I promise I will never behave like that again. ❤️PLEASE FORGIVE ME CUTIE PIE MER 🫂❤️🥺🎀";
+      }
+
+      else {
+
+        document.getElementById("slidePic").src = "pic8";
+
+        document.getElementById("final").style.display = "block";
+        const nextBtn = document.getElementById("nextBtn");
+        if (nextBtn) nextBtn.style.display = "none";
+      }
+
+    }
+
+    function forgive() {
+
+      document.getElementById("box").innerHTML =
+        `
+<h1>YAYYYYYYYYYYYYYYYYYY SHE FORGAVE ME! ❤️</h1>
+
+<img src="pic14">
+
+<h2 style="font-size: 18px; color: #ff4d88; font-weight: bold; line-height: 1.5; margin-top: 15px;">
+THANK YOU FOR FORGIVING ME 🥺❤️
+
+I PROMISE I WILL NEVER TAKE YOUR FORGIVENESS FOR GRANTED. YOU DESERVE ALL THE LOVE IN THE WORLD MER 😭🫂❤️
+</h2>
+`;
+
+    }
+
+    let dengeyPics = [
+      "pic6",
+      "pic7",
+      "pic5",
+      "pic9",
+      "pic100",
+      "pic11",
+      "pic12",
+      "pic13"
+    ];
+
+    let dengeyIndex = 0;
+    let noCount = 0;
+
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    if (noBtn) {
+      noBtn.addEventListener("mouseenter", dodgeNoButton);
+      noBtn.addEventListener("touchstart", function (e) {
+        e.preventDefault();
+        dodgeNoButton();
+      });
+    }
+
+    function dodgeNoButton() {
+      startMusicOnInteract();
+      const maxOffset = 160;
+      const x = (Math.random() - 0.5) * maxOffset;
+      const y = (Math.random() - 0.5) * maxOffset;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+      noCount++;
+      const currentScale = 1 + noCount * 0.08;
+      yesBtn.style.transform = `scale(${currentScale})`;
+
+      runAway();
+    }
+
+    function runAway() {
+
+      document.getElementById("slidePic").src =
+        dengeyPics[dengeyIndex];
+
+      dengeyIndex++;
+
+      if (dengeyIndex >= dengeyPics.length) {
+        dengeyIndex = 0;
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
